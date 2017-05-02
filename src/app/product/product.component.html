@@ -9,7 +9,8 @@
       <p>{{product.desc}}</p>
     </div>
     <div>
-      <app-stars>星</app-stars>
+      <!--此处声明：将product的rating值注入stars中声明的变量rating中-->
+      <app-stars [rating]="product.rating">星</app-stars>
     </div>
   </div>
 

@@ -1,1 +1,7 @@
-<p>星</p>
+<p>
+  <!--[class.glyphicon-star-empty]="star"表示star是否具有[class.glyphicon-star-empty]的样式，变量绑定-->
+  <span *ngFor="let star of stars" class="glyphicon glyphicon-star"
+        [class.glyphicon-star-empty]="star"></span>
+  <!--{{xxx}}插值表达式-->
+  <span> {{rating}}星</span>
+</p>
