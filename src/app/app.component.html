@@ -5,12 +5,14 @@
       <app-search></app-search>
     </div>
     <div class="col-md-9">
+      <!--这两个插件已经被封装到home组件中，因此只需要在此处加一个插座插入home组件即可实现效果
       <div class="row carousel-container">
         <app-carousel></app-carousel>
       </div>
       <div class="row">
         <app-product></app-product>
-      </div>
+      </div>-->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

@@ -10,7 +10,15 @@ import { SearchComponent } from './search/search.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { HomeComponent } from './home/home.component';
+import {Router, RouterModule, Routes} from "@angular/router";
+// 增加新的路由配置
+const routeConfig: Routes = [
+  {path: '',component:HomeComponent},
+  {path: 'product/: title',component: ProductDetailsComponent}
 
+  ]
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,12 +27,16 @@ import { StarsComponent } from './stars/stars.component';
     SearchComponent,
     CarouselComponent,
     ProductComponent,
-    StarsComponent
+    StarsComponent,
+    ProductDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    // 将新的路由配置注入到模块中去
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
