@@ -12,11 +12,12 @@ import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HomeComponent } from './home/home.component';
-import {Router, RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
+import {ProductService} from "./share/product.service";
 // 增加新的路由配置
 const routeConfig: Routes = [
-  {path: '',component:HomeComponent},
-  {path: 'product/: title',component: ProductDetailsComponent}
+  {path:'', component:HomeComponent},
+  {path:'product/:productId', component:ProductDetailsComponent}
 
   ]
 @NgModule({
@@ -38,7 +39,7 @@ const routeConfig: Routes = [
     // 将新的路由配置注入到模块中去
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
