@@ -1,5 +1,20 @@
+<!--<div class="row">-->
+  <!--<div class="col-sm-12">-->
+    <!--<div class="form-group">-->
+      <!--<input class="form-control" placeholder="请输入商品名称" [formControl]="titleFilter">-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <input class="form-control" placeholder="请输入商品名称"
+             [formControl]="titleFilter">
+    </div>
+  </div>
+</div>
 <!--angular的*ngFor-of循环与ts的for-of循环语句是有差别-->
-<div *ngFor="let product of products" class="col-md-4 col-lg-a">
+<div *ngFor="let product of products |filter :'title': keyword " class="col-md-4 col-lg-a">
   <div class="thumbnail">
     <!--与后台声明的变量进行属性绑定-->
     <img [src]="imgUrl">

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -14,6 +14,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from "@angular/router";
 import {ProductService} from "./share/product.service";
+import { FilterPipe } from './pipe/filter.pipe';
+import {ServiceLoggerService} from "./share/service-logger.service";
 // 增加新的路由配置
 const routeConfig: Routes = [
   {path:'', component:HomeComponent},
@@ -30,16 +32,18 @@ const routeConfig: Routes = [
     ProductComponent,
     StarsComponent,
     ProductDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     // 将新的路由配置注入到模块中去
-    RouterModule.forRoot(routeConfig)
+    RouterModule.forRoot(routeConfig),
+    ReactiveFormsModule,
   ],
-  providers: [ProductService],
+  providers: [{provide: ProductService,useClass: ProductService}, ServiceLoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
