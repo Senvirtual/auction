@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-search',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  formMoudel: FormsModule;
+  constructor(formBuilder: FormBuilder) {
+    this.formMoudel = formBuilder.group({
+      title: ['',Validators.minLength(3)],
+      price: [''],
+      category: [''],
+
+    })
+  }
 
   ngOnInit() {
   }

@@ -1,10 +1,4 @@
-<!--<div class="row">-->
-  <!--<div class="col-sm-12">-->
-    <!--<div class="form-group">-->
-      <!--<input class="form-control" placeholder="请输入商品名称" [formControl]="titleFilter">-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
+
 <div class="row">
   <div class="col-sm-12">
     <div class="form-group">
@@ -25,7 +19,7 @@
     </div>
     <div>
       <!--此处声明：将product的rating值注入stars中声明的变量rating中-->
-      <app-stars [rating]="product.rating">星</app-stars>
+      <app-stars [rating]="product.rating | number : '1.1-2' ">星</app-stars>
     </div>
   </div>
 
